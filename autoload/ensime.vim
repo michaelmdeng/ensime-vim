@@ -1,5 +1,5 @@
 if !has('nvim')
-    execute 'silent! pyfile' fnameescape(expand('<sfile>:p').'.py')
+    execute 'silent! py3file' fnameescape(expand('<sfile>:p').'.py')
     execute ':redraw!'
 endif
 
@@ -173,7 +173,7 @@ function! s:call_plugin(method_name, args) abort
       throw 'Call rplugin from vimscript: not supported yet'
     endif
     unlet! g:__error
-    python <<PY
+    python3 <<PY
 try:
   import json
   r = getattr(ensime_plugin, vim.eval('a:method_name'))(*vim.eval('a:args'))

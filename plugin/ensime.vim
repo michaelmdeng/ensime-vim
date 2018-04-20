@@ -6,10 +6,10 @@ function! s:Warn(msg)
     echohl WarningMsg | echomsg '[ensime] ' . a:msg | echohl None
 endf
 
-if !has('python')
-    call s:Warn('Your Vim build is missing +python support, ensime-vim will not be loaded.')
+if !has('python3')
+    call s:Warn('Your Vim build is missing +python3 support, ensime-vim will not be loaded.')
     if has('nvim')
-        call s:Warn('Did you remember to `pip2 install neovim`?')
+        call s:Warn('Did you remember to `pip install neovim`?')
     else
         call s:Warn('Please review the installation guide.')
     endif
@@ -19,7 +19,7 @@ endif
 " Fail fast if dependencies are missing, we can't do much useful if so.
 " We need to wrap this in a function, see :help script-here
 function! s:DependenciesValid() abort
-    python <<PY
+    python3 <<PY
 import vim
 
 # TODO: officially drop Vim < 7.4 support, inform users and don't load plugin
@@ -49,7 +49,7 @@ PY
 endfunction
 
 if !s:DependenciesValid()
-    call s:Warn('A dependency is missing, please `pip2 install sexpdata websocket-client` and restart Vim.')
+    call s:Warn('A dependency is missing, please `pip install sexpdata websocket-client` and restart Vim.')
     finish
 endif
 
