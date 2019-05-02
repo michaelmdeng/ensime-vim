@@ -129,6 +129,10 @@ class NeovimEnsime(Ensime):
     def com_en_debug_next(self, *args, **kwargs):
         super(NeovimEnsime, self).com_en_debug_next(*args, **kwargs)
 
+    @neovim.command('EnDebugListBreaks', **command_params)
+    def com_en_debug_list_breaks(self, *args, **kwargs):
+        super(NeovimEnsime, self).com_en_debug_list_breaks(*args, **kwargs)
+
     @neovim.command('EnShowPackage', **command_params)
     def com_en_package_inspect(self, *args, **kwargs):
         super(NeovimEnsime, self).com_en_package_inspect(*args, **kwargs)

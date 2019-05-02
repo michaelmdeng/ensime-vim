@@ -83,12 +83,13 @@ class EnsimeClient(TypecheckHandler, DebuggerClient, ProtocolHandler):
             logger.info('Initializing project - %s', projectdir)
             return logger
 
-        super(EnsimeClient, self).__init__()
         self.editor = editor
         self.launcher = launcher
 
         self.log = setup_logger()
         self.log.debug('__init__: in')
+
+        super(EnsimeClient, self).__init__()
         self.editor.initialize()
 
         self.ws = None
