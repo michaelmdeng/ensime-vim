@@ -37,6 +37,8 @@ class ProtocolHandler(object):
         self.handlers["TypeInspectInfo"] = self.handle_type_inspect
         self.handlers["SymbolSearchResults"] = self.handle_symbol_search
         self.handlers["SourcePositions"] = self.handle_source_positions
+        self.handlers["DebugVmStartEvent"] = self.handle_debug_events
+        self.handlers["DebugVmDisconnectEvent"] = self.handle_debug_events
         self.handlers["DebugOutputEvent"] = self.handle_debug_output
         self.handlers["DebugBreakEvent"] = self.handle_debug_break
         self.handlers["DebugBacktrace"] = self.handle_debug_backtrace
@@ -45,6 +47,7 @@ class ProtocolHandler(object):
         self.handlers["ImportSuggestions"] = self.handle_import_suggestions
         self.handlers["PackageInfo"] = self.handle_package_info
         self.handlers["FalseResponse"] = self.handle_false_response
+        self.handlers["BreakpointList"] = self.handle_breakpoint_list
 
     def handle_incoming_response(self, call_id, payload):
         """Get a registered handler for a given response and execute it."""

@@ -1,3 +1,10 @@
+function! EnDefineSigns() abort
+    execute "sign define EnDebugBreakpointSign text=o"
+    execute "sign define EnDebugCurrentBreakpointSign text=●"
+endfunction
+
+call EnDefineSigns()
+
 if exists('g:loaded_ensime') || &cp
     finish
 endif
@@ -87,6 +94,7 @@ command! -nargs=* -range EnDocUri call ensime#com_en_doc_uri([<f-args>], '')
 command! -nargs=* -range EnDocBrowse call ensime#com_en_doc_browse([<f-args>], '')
 command! -nargs=* -range EnSuggestImport call ensime#com_en_suggest_import([<f-args>], '')
 command! -nargs=* -range EnDebugBacktrace call ensime#com_en_debug_backtrace([<f-args>], '')
+command! -nargs=* -range EnDebugClearBreak call ensime#com_en_debug_clear_break([<f-args>], '')
 command! -nargs=* -range EnDebugClearBreaks call ensime#com_en_debug_clear_breaks([<f-args>], '')
 command! -nargs=* -range EnDebugContinue call ensime#com_en_debug_continue([<f-args>], '')
 command! -nargs=* -range EnDebugSetBreak call ensime#com_en_debug_set_break([<f-args>], '')
@@ -94,6 +102,7 @@ command! -nargs=* -range EnDebugStart call ensime#com_en_debug_start([<f-args>],
 command! -nargs=* -range EnDebugStep call ensime#com_en_debug_step([<f-args>], '')
 command! -nargs=* -range EnDebugStepOut call ensime#com_en_debug_step_out([<f-args>], '')
 command! -nargs=* -range EnDebugNext call ensime#com_en_debug_next([<f-args>], '')
+command! -nargs=* -range EnDebugListBreaks call ensime#com_en_debug_list_breaks([<f-args>], '')
 command! -nargs=0 -range EnClients call ensime#com_en_clients([<f-args>], '')
 command! -nargs=* -range EnToggleFullType call ensime#com_en_toggle_fulltype([<f-args>], '')
 command! -nargs=* -range EnOrganizeImports call ensime#com_en_organize_imports([<f-args>], '')
