@@ -163,6 +163,8 @@ class DebuggerClient(object):
         }
         self.send_request(req)
 
+        self.debug_breakpoints.pop(DebugBreakpoint(path, line), None)
+
         self.__refresh_debug_signs()
         self.editor._vim.command('sign unplace {line} file={path}'.format(
             line=line, path=path))
@@ -170,6 +172,8 @@ class DebuggerClient(object):
     def debug_clear_breaks(self, args, range=None):
         self.log.debug('debug_clear_breaks: in')
         self.send_request({"typehint": "DebugClearAllBreaksReq"})
+
+        self.debug_breakpoints = {}
 
         self.__refresh_debug_signs()
         for breakpoint in self.debug_breakpoints:
