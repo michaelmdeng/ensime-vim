@@ -227,6 +227,10 @@ class Ensime(object):
         client.debug_set_break(args, range)
 
     @execute_with_client()
+    def com_en_debug_clear_break(self, client, args, range=None):
+        client.debug_clear_break(args, range)
+
+    @execute_with_client()
     def com_en_debug_clear_breaks(self, client, args, range=None):
         client.debug_clear_breaks(args, range)
 
@@ -257,6 +261,10 @@ class Ensime(object):
     @execute_with_client()
     def com_en_debug_backtrace(self, client, args, range=None):
         client.debug_backtrace(args, range)
+
+    @execute_with_client()
+    def com_en_debug_list_breaks(self, client, args, range=None):
+        client.debug_list_breaks(args, range)
 
     @execute_with_client()
     def com_en_rename(self, client, args, range=None):

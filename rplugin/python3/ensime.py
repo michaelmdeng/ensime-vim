@@ -105,6 +105,10 @@ class NeovimEnsime(Ensime):
     def com_en_debug_set_break(self, *args, **kwargs):
         super(NeovimEnsime, self).com_en_debug_set_break(*args, **kwargs)
 
+    @neovim.command('EnDebugClearBreak', **command_params)
+    def com_en_debug_clear_break(self, *args, **kwargs):
+        super(NeovimEnsime, self).com_en_debug_clear_break(*args, **kwargs)
+
     @neovim.command('EnDebugClearBreaks', **command_params)
     def com_en_debug_clear_breaks(self, *args, **kwargs):
         super(NeovimEnsime, self).com_en_debug_clear_breaks(*args, **kwargs)
@@ -128,6 +132,10 @@ class NeovimEnsime(Ensime):
     @neovim.command('EnDebugNext', **command_params)
     def com_en_debug_next(self, *args, **kwargs):
         super(NeovimEnsime, self).com_en_debug_next(*args, **kwargs)
+
+    @neovim.command('EnDebugListBreaks', **command_params)
+    def com_en_debug_list_breaks(self, *args, **kwargs):
+        super(NeovimEnsime, self).com_en_debug_list_breaks(*args, **kwargs)
 
     @neovim.command('EnShowPackage', **command_params)
     def com_en_package_inspect(self, *args, **kwargs):
