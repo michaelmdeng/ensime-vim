@@ -121,6 +121,7 @@ class DebuggerClient(object):
 
         self.editor._vim.command('call setqflist([{bps}], \'r\')'.format(
             bps=bp_str))
+        self.editor._vim.command('copen')
 
 # API Call Build/Send
     def debug_set_break(self, args, range=None):
